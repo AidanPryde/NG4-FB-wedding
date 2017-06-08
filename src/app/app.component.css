@@ -1,5 +1,6 @@
 #mFooter {
-  position: absolute;
+  position: fixed;
+  display: block;
   right: 0;
   bottom: 0;
   left: 0;
@@ -8,9 +9,13 @@
   text-align: center;
 }
 #mHeader {
-    height:150px;
-    background:#F0F0F0;
-    border:1px solid #CCC;
-    width:960px;
-    margin:0px auto;
+  position: relative;
+  height: 150px;
+  background:#F0F0F0;
+  /*border:1px solid #CCC;*/
+  width: 100%;
+  padding: 0px 25px 0px 25px;
+}
+.float-right {
+  float: right;
 }

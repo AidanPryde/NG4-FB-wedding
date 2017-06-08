@@ -10,9 +10,42 @@ button {
     background:#008FEF;
     color:white;
     padding: 1.2em;
+    width:250px;
+    text-align:center;
+    font-size:1.2em;
+    margin-bottom: 30px;
+    cursor:pointer;
+}
+a {
+    background:#008FEF;
+    color:white;
+    padding: 1.2em;
     width:300px;
     text-align:center;
     font-size:1.2em;
     margin-bottom: 30px;
     cursor:pointer;
+}
+label {
+  display: block;
+  padding-left: 10px;
+  text-indent: -5px;
+}
+input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  margin-left: 10px;
+  vertical-align: bottom;
+  position: relative;
+  top: -1px;
+  *overflow: hidden;
+}
+.default-router-container {
+    background: white;
+    /*border:1px solid #CCC;*/
+    width: 100%;
+    padding: 0px 25px 0px 25px;
+    overflow: scroll;
+    height: 525px;
 }

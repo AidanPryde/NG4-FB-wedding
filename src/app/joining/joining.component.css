@@ -1,0 +1,16 @@
+.box {
+  flex: auto;
+  display: block;
+  float: left;
+  position: relative;
+  padding-left: 9px;
+  padding-right: 9px;
+}
+.labelInputPair{
+  display: flex;
+}
+.button-list-save {
+  margin-left: 9px;
+  clear: both;
+  display: block;
+}

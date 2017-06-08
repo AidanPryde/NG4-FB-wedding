@@ -1,15 +1,15 @@
-import { NgModule }             from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AppComponent }     from './app.component';
-import { HomeComponent }    from "./home/home.component";
+import { HomeComponent } from './home/home.component';
 import { JoiningComponent } from './joining/joining.component';
-import { GiftComponent }    from './gift/gift.component';
+import { GiftComponent } from './gift/gift.component';
 
-import { AuthGuard }        from './services/auth.service';
-import { SignupComponent }  from './signup/signup.component';
-import { LoginComponent }   from './login/login.component';
-import { LogoutComponent }  from './logout/logout.component';
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+
+import { AuthGuard } from './services/auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -26,7 +26,6 @@ const routes: Routes = [
   exports: [ RouterModule ]
 })
 export class AppRoutingModule {}
-
 
 /*
 Copyright 2017 Google Inc. All Rights Reserved.

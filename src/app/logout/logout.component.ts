@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
-import { moveIn, fallIn } from '../app.routes.animations';
+
+import { moveIn, fallIn } from '../app-routing.animation';
+
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
     selector: 'app-logout',
@@ -12,16 +14,24 @@ import { moveIn, fallIn } from '../app.routes.animations';
 })
 export class LogoutComponent implements OnInit {
 
-    state: string = '';
+    state: '';
     error: any;
 
-    constructor(public af: AngularFireAuth, private router: Router) {
-        this.af.auth.signOut()
-        .then((success) => {
-            this.router.navigate(['/'])
-        }).catch((err) => {
-            this.error = err;
-        })
+    constructor(public afa: AngularFireAuth, private router: Router) {
+        if (afa.authState) {
+            afa.auth
+            .signOut()
+            .then(() => {
+                console.log('auth service >> logout >> success redirect to login');
+                this.router.navigateByUrl('/login');
+            }).catch((err) => {
+                console.log('auth service >> logout >> error');
+                console.log(err);
+            })
+        } else {
+            console.log('auth service >> logout >> already logged out, redirect to home');
+            this.router.navigateByUrl('/home');
+        }
     }
 
     ngOnInit() {

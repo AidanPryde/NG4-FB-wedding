@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
-import { moveIn, fallIn } from '../app.routes.animations';
+import { moveIn, fallIn } from '../app-routing.animation';
 
 @Component({
     selector: 'app-signup',
@@ -12,7 +12,7 @@ import { moveIn, fallIn } from '../app.routes.animations';
 })
 export class SignupComponent implements OnInit {
 
-    state: string = '';
+    state: '';
     error: any;
 
     constructor(public af: AngularFireAuth, private router: Router) {
@@ -20,16 +20,29 @@ export class SignupComponent implements OnInit {
     }
 
     onSubmit(formData) {
-        if(formData.valid) {
-            console.log(formData.value);
-            this.af.auth.createUserWithEmailAndPassword(
+        if (formData.valid) {
+            console.log('auth service >> signup >> sent form data valid');
+            this.af.auth
+            .createUserWithEmailAndPassword(
                 formData.value.email,
                 formData.value.password
-            ).then(
-            (success) => {
-                this.router.navigate(['/'])
-            }).catch(
-            (err) => {
+            ).then(() => {
+                console.log('auth service >> signup >> user created');
+                this.af.auth.currentUser
+                .updateProfile({
+                    displayName: formData.value.name,
+                    photoURL: ''
+                })
+                .then(() => {
+                    console.log('auth service >> signup >> name added, redirect to home');
+                    this.router.navigate(['/home'])
+                })
+                .catch((err) => {
+                    console.log('auth service >> signup >> name adding error');
+                    this.error = err;
+                });
+            }).catch((err) => {
+                console.log('auth service >> signup >> user create error');
                 this.error = err;
             })
         }

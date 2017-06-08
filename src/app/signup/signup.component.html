@@ -1,13 +1,14 @@
-<div class="form-container">
+<div class="default-router-container">
   <h2>Regisztráció</h2>
 
   <span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
     
   <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
 
-    <input type="text" placeholder="Email address.." (ngModel)="email" name="email" class="txt" required>
-    <input type="password" placeholder="Password" (ngModel)="password" name="password" class="txt" required>
+    <input type="text" placeholder="Neved.." (ngModel)="name" name="name" class="txt" required>
+    <input type="text" placeholder="Email címed.." (ngModel)="email" name="email" class="txt" required>
+    <input type="password" placeholder="Jelszavad" (ngModel)="password" name="password" class="txt" required>
 
-    <button type="submit" [disabled]="!formData.valid" class="basic-btn">Create my account</button>
+    <button type="submit" [disabled]="!formData.valid" class="basic-btn">Regisztrációs adatok küldése</button>
   </form>
 </div>

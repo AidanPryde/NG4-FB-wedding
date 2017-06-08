@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
-import { moveIn, fallIn } from '../app.routes.animations';
+import { moveIn, fallIn } from '../app-routing.animation';
+
+import { MyAuthService } from '../services/auth.service';
+
 
 @Component({
     selector: 'app-login',
@@ -12,32 +15,36 @@ import { moveIn, fallIn } from '../app.routes.animations';
 })
 export class LoginComponent implements OnInit {
 
-    state: string = '';
+    state: '';
     error: any;
 
-    constructor(public af: AngularFireAuth, private router: Router) {
-        /*this.af.auth.subscribe(auth => { 
-        if(auth) {
-            this.router.navigateByUrl('/');
-        }
-        });*/
+    constructor(public afa: AngularFireAuth, private router: Router) {
+        this.afa.authState.subscribe(authState => {
+            if (authState) {
+                console.log('auth service >> login >> already logged in, redirect to home');
+                this.router.navigateByUrl('/home');
+            }
+        });
     }
 
     onSubmit(formData) {
-        if(formData.valid) {
-            console.log(formData.value);
-            this.af.auth.signInWithEmailAndPassword(
-                formData.value.email,
-                formData.value.password
-            ).then(
-            (success) => {
-                console.log(success);
-                this.router.navigate(['/']);
-            }).catch(
-            (err) => {
-                console.log(err);
-                this.error = err;
-            })
+        if (formData.valid) {
+            if ((this.afa.authState != null)) {
+                this.afa.auth.signInWithEmailAndPassword(
+                    formData.value.email,
+                    formData.value.password
+                ).then(() => {
+                    console.log('auth service >> login >> success');
+                    return Promise.resolve();
+                }).catch((err) => {
+                    console.log('auth service >> login >> err');
+                    console.log(err);
+                    return Promise.reject(err);
+                });
+            } else {
+                console.log('auth service >> login >> already logged in');
+                return Promise.reject('Már be voltál jelentkezve.');
+            }
         }
     }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
-import { moveIn, fallIn, moveInLeft } from '../app.routes.animations';
+import { moveIn, fallIn, moveInLeft } from '../app-routing.animation';
 
 @Component({
     selector: 'app-home',
@@ -12,10 +12,10 @@ import { moveIn, fallIn, moveInLeft } from '../app.routes.animations';
 })
 export class HomeComponent implements OnInit {
   name: any;
-  state: string = '';
+  state: '';
 
   constructor(public af: AngularFireAuth, private router: Router) {
-      if(this.af.auth.currentUser) {
+      if (this.af.auth.currentUser) {
         this.name = this.af.auth.currentUser.displayName;
       }
   }

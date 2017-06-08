@@ -1,14 +1,20 @@
 <div id="mHeader">
   <h1>Esküvő</h1>
-  <nav>
-    <a routerLink="/home"    routerLinkActive="active">Kezdőlap</a>
-    <a routerLink="/joining" routerLinkActive="active">Jelentkezés</a>
-    <a routerLink="/gift"    routerLinkActive="active">Ajándékok</a>
-    <a routerLink="/signup"  routerLinkActive="active" *ngIf="!(user | async)?.uid">Regisztráció</a>
-    <a routerLink="/login"   routerLinkActive="active" *ngIf="!(user | async)?.uid">Bejelentkezés</a>
-    <a routerLink="/logout"  routerLinkActive="active" *ngIf="(user | async)?.uid">Kijelentkezés</a>
-  </nav>
+    <nav>
+      <a routerLink="/home"    routerLinkActive="active">Kezdőlap</a>
+      <a routerLink="/joining" routerLinkActive="active">Jelentkezés</a>
+      <a routerLink="/gift"    routerLinkActive="active">Ajándékok</a>
+      <div *ngIf="(authState | async)" class="float-right">
+        <span>{{ (authState | async)?.displayName }}</span>
+        <a routerLink="/logout"  routerLinkActive="active" *ngIf="(authState | async)">Kijelentkezés</a>
+      </div>
+      <div *ngIf="!(authState | async)" class="float-right">
+        <a routerLink="/signup"  routerLinkActive="active" >Regisztráció</a>
+        <a routerLink="/login"   routerLinkActive="active" *ngIf="!(authState | async)">Bejelentkezés</a>
+      </div>
+    </nav>
 </div>
+<hr>
 <router-outlet></router-outlet>
 <div id="mFooter">
   <h5>Hajde jó a habos sütemény.</h5>

@@ -1,3 +1,24 @@
-<div>
-    <p>name: {{name}}</p>
+<div class="default-router-container">
+    <h2>Eljösz?</h2>
+    <span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
+
+    <hr>
+
+    <div *ngFor="let guest of guests; let i = index;" class="box">
+        <input type="text" [(ngModel)]="guests[i].name" (ngModelChange)="inputChanged($event)" placeholder="Vendég neve" class="txt" required>
+        <div class="labelInputPair">
+            <label class="inputLabel">Gyerek?</label>
+            <input type="checkbox" [(ngModel)]="guests[i].isChild" (ngModelChange)="inputChanged($event)" class="txt">
+        </div>
+        <!--<input type="text" [(ngModel)]="guests[i].broughtBy" (ngModelChange)="inputChanged($event)" placeholder="A felelős neve" class="txt" required>-->
+        <button type="button" (click)="removeGuest(guest)" class="basic-btn">Vendég törése</button>
+    </div>
+    <button [style.background-color]="savebuttoncolor" type="button" (click)="saveGuests()" class="basic-btn button-list-save">{{savebuttontext}}</button>
+    <hr>
+
+    <div class="box">
+        <input type="number" placeholder="Mennyi vendéget adjon még hozzá a listádhot?" [(ngModel)]="guestCount" class="txt float-left">
+        <button type="button" (click)="generateGuests()" class="basic-btn">Vendégek hozzáadása</button>
+        
+    </div>
 </div>
