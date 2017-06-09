@@ -13,6 +13,7 @@ class Guest {
     public name: string,
     public isChild: boolean,
     public broughtBy: string,
+    public uid: string
   ) { }
 }
 
@@ -32,7 +33,7 @@ export class JoiningComponent implements OnInit {
   savebuttontext = 'Lista elmentve';
 
   constructor(public afd: AngularFireDatabase, public afa: AngularFireAuth) {
-    afd.list('/guest').subscribe(data => {
+    afd.list('/user/' + this.afa.auth.currentUser.uid + '/guest').subscribe(data => {
       this.guests = data;
     });
   }
@@ -42,24 +43,25 @@ export class JoiningComponent implements OnInit {
       this.guestCount = 1;
     }
     for (let index = 0; index < this.guestCount; index++) {
-      this.afd.list('/guest').push(
+      this.afd.list('/user/' + this.afa.auth.currentUser.uid + '/guest').push(
         new Guest(
           '',
           false,
-          this.afa.auth.currentUser.displayName
+          this.afa.auth.currentUser.displayName,
+          this.afa.auth.currentUser.uid
         )
       );
     }
   }
 
   removeGuest(data) {
-    this.afd.list('/guest').remove(data);
+    this.afd.list('/user/' + this.afa.auth.currentUser.uid + '/guest').remove(data);
   }
 
   saveGuests() {
     this.guests.forEach(guest => {
       console.log(guest);
-      this.afd.list('/guest')
+      this.afd.list('/user/' + this.afa.auth.currentUser.uid + '/guest')
       .update(guest.$key, guest)
       .then(() => {
         this.savebuttoncolor = 'green';

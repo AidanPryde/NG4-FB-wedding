@@ -35,15 +35,14 @@ export class LoginComponent implements OnInit {
                     formData.value.password
                 ).then(() => {
                     console.log('auth service >> login >> success');
-                    return Promise.resolve();
                 }).catch((err) => {
                     console.log('auth service >> login >> err');
                     console.log(err);
-                    return Promise.reject(err);
+                    this.error = err;
                 });
             } else {
                 console.log('auth service >> login >> already logged in');
-                return Promise.reject('Már be voltál jelentkezve.');
+                this.error = 'Már be voltál jelentkezve.';
             }
         }
     }
