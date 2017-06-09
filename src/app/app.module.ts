@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AuthGuard } from './services/auth-guard.service';
 import { MyAuthService } from './services/auth.service';
+import { ProfileComponent } from './profile/profile.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
@@ -35,6 +36,7 @@ export const firebaseConfig = {
     HomeComponent,
     JoiningComponent,
     GiftComponent,
+    ProfileComponent,
     SignupComponent,
     LoginComponent,
     LogoutComponent

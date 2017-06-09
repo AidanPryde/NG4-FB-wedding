@@ -4,16 +4,12 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { Router } from '@angular/router';
 import { moveIn, fallIn, moveInLeft } from '../app-routing.animation';
 
-import { Observable } from 'rxjs/Observable';
-
 class Guest {
   $key: string;
 
   constructor(
     public name: string,
-    public isChild: boolean,
-    public broughtBy: string,
-    public uid: string
+    public isChild: boolean
   ) { }
 }
 
@@ -27,7 +23,7 @@ class Guest {
 export class JoiningComponent implements OnInit {
   guestCount: number;
   guests: Guest[];
-  error;
+  error: Error;
   state: '';
   savebuttoncolor = 'green';
   savebuttontext = 'Lista elmentve';
@@ -42,20 +38,32 @@ export class JoiningComponent implements OnInit {
     if (this.guestCount === undefined || this.guestCount == null || this.guestCount < 0) {
       this.guestCount = 1;
     }
+    if (this.guestCount > 10) {
+      this.guestCount = 10;
+      this.error = new Error('Egyszerre csak maximum 10-et hozz létre.');
+    }
     for (let index = 0; index < this.guestCount; index++) {
-      this.afd.list('/user/' + this.afa.auth.currentUser.uid + '/guest').push(
+      this.afd.list('/user/' + this.afa.auth.currentUser.uid + '/guest')
+      .push(
         new Guest(
           '',
-          false,
-          this.afa.auth.currentUser.displayName,
-          this.afa.auth.currentUser.uid
+          false
         )
-      );
+      )
+      .then(() => {})
+      .catch((err) => {
+        this.error = err;
+      });
     }
   }
 
   removeGuest(data) {
-    this.afd.list('/user/' + this.afa.auth.currentUser.uid + '/guest').remove(data);
+    this.afd.list('/user/' + this.afa.auth.currentUser.uid + '/guest')
+    .remove(data)
+    .then(() => {})
+    .catch((err) => {
+      this.error = err;
+    });
   }
 
   saveGuests() {

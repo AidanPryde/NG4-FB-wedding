@@ -6,6 +6,7 @@
       <a routerLink="/gift"    routerLinkActive="active">Ajándékok</a>
       <div *ngIf="(authState | async)" class="float-right">
         <span>{{ (authState | async)?.displayName }}</span>
+        <a routerLink="/profile" routerLinkActive="active" *ngIf="(authState | async)">Névváltoztatás</a>
         <a routerLink="/logout"  routerLinkActive="active" *ngIf="(authState | async)">Kijelentkezés</a>
       </div>
       <div *ngIf="!(authState | async)" class="float-right">

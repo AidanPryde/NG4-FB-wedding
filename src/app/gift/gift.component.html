@@ -1,3 +1,28 @@
 <div class="default-router-container">
-    
+    <h2>Valami</h2>
+    <span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
+    <h3>Választható</h3>
+    <div>
+        <ul>
+            <li *ngFor="let gift of notSelectedGifts;">
+
+                    <span class="gift-name" (click)="selectGift(gift)">{{gift.name}}</span>
+                    <button *ngIf="gift.createdByUid === afa.auth.currentUser.uid" type="button" (click)="removeGift(gift)" class="basic-btn delete-button">Ajándék törlése</button>
+
+            </li>
+        </ul>
+    </div>
+    <hr>
+    <h3>Már választott</h3>
+    <div>
+        <ul>
+           <li *ngFor="let gift of selectedGifts;"  >
+                <span class="gift-name" (click)="selectGift(gift)">{{gift.name}}</span>
+            </li>
+        </ul>
+    </div>
+    <hr>
+    <h3>Van más ütleted?</h3>
+    <input type="text" placeholder="Ajándék neve" [(ngModel)]="giftName" class="txt">
+    <button type="button" (click)="generateGift()" class="basic-btn">Ajándék hozzáadása a listához</button>
 </div>

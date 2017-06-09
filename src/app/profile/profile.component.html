@@ -1,0 +1,12 @@
+<div class="default-router-container">
+  <h2>Bejelentkezés</h2>
+
+  <span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
+
+  <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
+
+    <input type="text" placeholder="A javított neved" (ngModel)="name" name="name" class="txt" required>
+
+    <button type="submit" [disabled]="!formData.valid" class="basic-btn">Új név küldése</button>
+  </form>
+</div>

@@ -47,5 +47,19 @@ input[type='checkbox'] {
     width: 100%;
     padding: 0px 25px 0px 25px;
     overflow: scroll;
-    height: 525px;
+    height: 625px;
+}
+ul {
+    list-style-type: none;
+    margin-bottom: 50px;
+}
+li {
+    padding: 35px;
+    clear: both;
+}
+.float-right {
+  float: right;
+}
+.float-left {
+  float: left;
 }

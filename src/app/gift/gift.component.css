@@ -1,0 +1,12 @@
+.gift-name {
+    background-color: gray;
+    width: 50%;
+    margin-top: 0px;
+    padding: 20px;
+    display: flex;
+    float: left;
+}
+.delete-button {
+    float: left;
+    margin: 0px;
+}

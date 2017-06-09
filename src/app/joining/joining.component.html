@@ -10,7 +10,6 @@
             <label class="inputLabel">Gyerek?</label>
             <input type="checkbox" [(ngModel)]="guests[i].isChild" (ngModelChange)="inputChanged($event)" class="txt">
         </div>
-        <!--<input type="text" [(ngModel)]="guests[i].broughtBy" (ngModelChange)="inputChanged($event)" placeholder="A felelős neve" class="txt" required>-->
         <button type="button" (click)="removeGuest(guest)" class="basic-btn">Vendég törése</button>
     </div>
     <button [style.background-color]="savebuttoncolor" type="button" (click)="saveGuests()" class="basic-btn button-list-save">{{savebuttontext}}</button>

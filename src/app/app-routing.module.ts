@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { JoiningComponent } from './joining/joining.component';
 import { GiftComponent } from './gift/gift.component';
 
+import { ProfileComponent } from './profile/profile.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'home',    component: HomeComponent },
   { path: 'joining', component: JoiningComponent, canActivate: [AuthGuard] },
   { path: 'gift',    component: GiftComponent,    canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'signup',  component: SignupComponent },
   { path: 'login',   component: LoginComponent },
   { path: 'logout',  component: LogoutComponent,  canActivate: [AuthGuard] }
