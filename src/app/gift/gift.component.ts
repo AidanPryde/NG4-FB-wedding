@@ -73,18 +73,21 @@ export class GiftComponent implements OnInit {
   }
 
   selectGift(data) {
-    if (data.isAlreadySelected) {
-      if (data.selectedByName === this.afa.auth.currentUser.displayName && data.selectedByUid === this.afa.auth.currentUser.uid) {
+    console.log(data);
+    console.log(this.afa.auth.currentUser.uid);
+    if (data.isAlreadySelected === true) {
+      if (data.selectedByUid === this.afa.auth.currentUser.uid) {
         data.selectedByName = '';
         data.selectedByUid = '';
+        data.isAlreadySelected = false;
       } else {
         return;
       }
     } else {
       data.selectedByName = this.afa.auth.currentUser.displayName;
       data.selectedByUid = this.afa.auth.currentUser.uid;
+      data.isAlreadySelected = true;
     }
-    data.isAlreadySelected = !data.isAlreadySelected;
     this.afd.list('/gift')
       .update(data.$key, data)
       .then(() => {
