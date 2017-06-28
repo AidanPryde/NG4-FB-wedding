@@ -6,7 +6,8 @@ body {
     background-repeat: no-repeat;
     background-position: center top;
     background-size: 100%;
-    text-shadow: red 1px 1px;
+    font-size: 150%;
+    text-shadow: black 2px 2px;
     background-color: black;
 }
 * {
@@ -22,17 +23,20 @@ button {
     margin-bottom: 30px;
     cursor:pointer;
     text-shadow: none;
+    font-size: 100%;
 }
 a {
     background:#008FEF;
     color:white;
-    padding: 1.2em;
+    margin: 5px;
+    padding: 2px;
     width:300px;
     text-align:center;
     font-size:1.2em;
     margin-bottom: 30px;
     cursor:pointer;
     text-shadow: none;
+    font-size: 100%;
 }
 label {
   display: block;
@@ -48,6 +52,7 @@ input[type='checkbox'] {
   position: relative;
   top: -1px;
   *overflow: hidden;
+  font-size: 100%;
 }
 .default-router-container {
     /*border:1px solid #CCC;*/
