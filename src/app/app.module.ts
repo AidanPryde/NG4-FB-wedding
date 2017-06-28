@@ -22,12 +22,12 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 export const firebaseConfig = {
-  apiKey: 'AIzaSyBMMygqHCU3ITa6fhpNgymEC8XXLxBP5FQ',
-  authDomain: 'wp-wedding-e9dbe.firebaseapp.com',
-  databaseURL: 'https://wp-wedding-e9dbe.firebaseio.com',
-  projectId: 'wp-wedding-e9dbe',
-  storageBucket: 'wp-wedding-e9dbe.appspot.com',
-  messagingSenderId: '132706772677'
+  apiKey: "AIzaSyDkQrxrutqgoCkIXjzTVXILc4-ML64OVTI",
+  authDomain: "csenge-gergo.firebaseapp.com",
+  databaseURL: "https://csenge-gergo.firebaseio.com",
+  projectId: "csenge-gergo",
+  storageBucket: "csenge-gergo.appspot.com",
+  messagingSenderId: "250629012911"
 };
 
 @NgModule({

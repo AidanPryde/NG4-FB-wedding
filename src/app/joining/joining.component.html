@@ -1,10 +1,10 @@
 <div class="default-router-container">
-    <h2>Eljösz?</h2>
+    <h2>Eljössz?</h2>
     <span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
 
     <hr>
 
-    <div *ngFor="let guest of guests; let i = index;" class="box">
+    <div *ngFor="let guest of guests; let i = index;" class="box" [@fallIn]='state'>
         <input type="text" [(ngModel)]="guests[i].name" (ngModelChange)="inputChanged($event)" placeholder="Vendég neve" class="txt" required>
         <div class="labelInputPair">
             <label class="inputLabel">Gyerek?</label>

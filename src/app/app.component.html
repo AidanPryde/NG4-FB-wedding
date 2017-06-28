@@ -4,12 +4,12 @@
       <a routerLink="/home"    routerLinkActive="active">Kezdőlap</a>
       <a routerLink="/joining" routerLinkActive="active">Jelentkezés</a>
       <a routerLink="/gift"    routerLinkActive="active">Ajándékok</a>
-      <div *ngIf="(authState | async)" class="float-right">
+      <div *ngIf="(authState | async)" class="float-right" [@fallIn]='state'>
         <span>{{ (authState | async)?.displayName }}</span>
         <a routerLink="/profile" routerLinkActive="active" *ngIf="(authState | async)">Névváltoztatás</a>
         <a routerLink="/logout"  routerLinkActive="active" *ngIf="(authState | async)">Kijelentkezés</a>
       </div>
-      <div *ngIf="!(authState | async)" class="float-right">
+      <div *ngIf="!(authState | async)" class="float-right" [@fallIn]='state'>
         <a routerLink="/signup"  routerLinkActive="active" >Regisztráció</a>
         <a routerLink="/login"   routerLinkActive="active" *ngIf="!(authState | async)">Bejelentkezés</a>
       </div>
@@ -17,6 +17,6 @@
 </div>
 <hr>
 <router-outlet></router-outlet>
-<div id="mFooter">
+<!--<div id="mFooter">
   <h5>Hajde jó a habos sütemény.</h5>
-</div>
+</div>-->

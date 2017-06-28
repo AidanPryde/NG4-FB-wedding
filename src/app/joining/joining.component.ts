@@ -83,7 +83,7 @@ export class JoiningComponent implements OnInit {
 
   inputChanged($event) {
     this.savebuttoncolor = 'red';
-    this.savebuttontext = 'Ha végesztél mentsd el a munkádat';
+    this.savebuttontext = 'Ha végeztél mentsd el a munkádat';
   }
 
   ngOnInit() {

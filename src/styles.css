@@ -1,9 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-    background-image: url('./assets/images/bg-stars.jpg');
+    background-image: url('./assets/images/bg.jpg');
     padding-top: 0em;
-    color: darkgreen;
-    text-shadow: 2px 2px #ff0000;
+    color: beige;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100%;
+    text-shadow: red 1px 1px;
+    background-color: black;
 }
 * {
     font-family: 'Raleway';
@@ -17,6 +21,7 @@ button {
     font-size:1.2em;
     margin-bottom: 30px;
     cursor:pointer;
+    text-shadow: none;
 }
 a {
     background:#008FEF;
@@ -27,6 +32,7 @@ a {
     font-size:1.2em;
     margin-bottom: 30px;
     cursor:pointer;
+    text-shadow: none;
 }
 label {
   display: block;
@@ -44,12 +50,12 @@ input[type='checkbox'] {
   *overflow: hidden;
 }
 .default-router-container {
-    background: white;
     /*border:1px solid #CCC;*/
     width: 100%;
     padding: 0px 25px 0px 25px;
-    overflow: scroll;
-    height: 625px;
+    overflow: auto;
+    height: 755px;
+    background: transparent;
 }
 ul {
     list-style-type: none;

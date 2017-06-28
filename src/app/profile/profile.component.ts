@@ -18,6 +18,8 @@ export class ProfileComponent implements OnInit {
     state: '';
     error: any;
 
+    name: string;
+
     constructor(public afa: AngularFireAuth) {
 
     }
