@@ -1,5 +1,5 @@
 <div class="default-router-container">
-    <h2>Eljössz?</h2>
+    <h2>Eljössz? (Magadat is add hozzá, ha eljössz.)</h2>
     <span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
 
     <hr>
@@ -18,6 +18,5 @@
     <div class="box">
         <input type="number" placeholder="Mennyi vendéget adjon még hozzá a listádhot?" [(ngModel)]="guestCount" class="txt float-left">
         <button type="button" (click)="generateGuests()" class="basic-btn">Vendégek hozzáadása</button>
-        
     </div>
 </div>

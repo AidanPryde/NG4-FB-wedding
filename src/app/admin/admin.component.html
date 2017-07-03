@@ -1,0 +1,22 @@
+<div class="default-router-container">
+    <h2>Ajándék lista</h2>
+    <span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
+
+    <h3>Userek</h3>
+    <div>
+        <ul>
+            <li *ngFor="let user of users;" [@fallIn]='state'>
+                <span *ngIf="user.details">Neve: {{user.details.name}}</span><br>
+                <span *ngIf="user.details">Email: {{user.details.email}}</span>
+                <div *ngIf="user.guests">
+                    <p *ngFor="let guest of user.guests;" [@fallIn]='state'>
+                        <span>Vendés neve: {{guest.name}}</span><br>
+                        <span>Gyerek-e? {{guest.isChild ? "igen" : "nem"}}</span>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <hr>
+
+</div>

@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { JoiningComponent } from './joining/joining.component';
 import { GiftComponent } from './gift/gift.component';
 
+import { AdminComponent } from './admin/admin.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
@@ -15,6 +16,7 @@ import { AuthGuard } from './services/auth-guard.service';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home',    component: HomeComponent },
+  { path: 'admin',   component: AdminComponent },
   { path: 'joining', component: JoiningComponent, canActivate: [AuthGuard] },
   { path: 'gift',    component: GiftComponent,    canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },

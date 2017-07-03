@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AuthGuard } from './services/auth-guard.service';
 import { MyAuthService } from './services/auth.service';
+import { AdminComponent } from './admin/admin.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
@@ -22,17 +23,18 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyDkQrxrutqgoCkIXjzTVXILc4-ML64OVTI",
-  authDomain: "csenge-gergo.firebaseapp.com",
-  databaseURL: "https://csenge-gergo.firebaseio.com",
-  projectId: "csenge-gergo",
-  storageBucket: "csenge-gergo.appspot.com",
-  messagingSenderId: "250629012911"
+  apiKey: 'AIzaSyDkQrxrutqgoCkIXjzTVXILc4-ML64OVTI',
+  authDomain: 'csenge-gergo.firebaseapp.com',
+  databaseURL: 'https://csenge-gergo.firebaseio.com',
+  projectId: 'csenge-gergo',
+  storageBucket: 'csenge-gergo.appspot.com',
+  messagingSenderId: '250629012911'
 };
 
 @NgModule({
   declarations: [
     AppComponent,
+    AdminComponent,
     HomeComponent,
     JoiningComponent,
     GiftComponent,
